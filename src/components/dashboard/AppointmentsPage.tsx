@@ -84,7 +84,14 @@ const AppointmentsPage: React.FC = () => {
                   <div className="flex flex-col">
                     <span className="font-semibold text-white">{a.cliente_nome}</span>
                     <span className="text-gray-400 text-sm">{a.servico_nome} com {a.profissional_nome}</span>
-                    <span className="text-gray-500 text-xs">{new Date(a.data_hora).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                    <span className="text-gray-500 text-xs">
+                      {(() => {
+                        const d = a.data_hora ? new Date(a.data_hora) : null;
+                        return d && !isNaN(d.getTime())
+                          ? d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                          : 'Data inválida';
+                      })()}
+                    </span>
                     <span className="text-xs text-purple-400">{a.status}</span>
                   </div>
                 </li>
