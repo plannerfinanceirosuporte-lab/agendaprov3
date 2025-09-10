@@ -16,7 +16,7 @@ import { LandingPage } from './components/landing/LandingPage';
 import { LoginForm } from './components/auth/LoginForm';
 import { StatsGrid } from './components/dashboard/StatsGrid';
 import { RecentAppointments } from './components/dashboard/RecentAppointments';
-import { AppointmentCalendar } from './components/dashboard/AppointmentCalendar';
+import AppointmentsPage from './components/dashboard/AppointmentsPage';
 import { ClientsManager } from './components/dashboard/ClientsManager';
 import { ServicesManager } from './components/dashboard/ServicesManager';
 
@@ -218,15 +218,15 @@ function App() {
         );
 
       case 'agendamentos':
-        return (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <AppointmentCalendar />
-          </motion.div>
-        );
+          return (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <AppointmentsPage />
+            </motion.div>
+          );
 
       case 'clientes':
         return (
